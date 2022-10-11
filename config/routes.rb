@@ -3,4 +3,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root 'users#index'
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions',
+  #   registrations: 'users/registrations'
+  # }
+
+  # devise_scope  :user do
+  #   get 'users/sign_out' => 'devise/sessions#destroy'
+  # end
+  resources :users do
+    resources :groups,
+    resources :group_budgets
+  end
 end
