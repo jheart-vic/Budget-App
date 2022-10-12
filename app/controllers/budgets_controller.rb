@@ -1,9 +1,15 @@
 class BudgetsController < ApplicationController
+  before_action :set_group
   def index
     @user = current_user
-    @group = Group.find(params[:group_id])
-    @budget = Budget.where(user_id: @user.id, group_id: @group.id)
+    # @group = Group.find(params[:group_id])
+    @budgets = @group.budgets
     @total = @budgets.sum(:amount)
+  end
+
+  def new
+    @budget = Budget.new
+    # @group = Group.all
   end
 
   def create
@@ -12,6 +18,7 @@ class BudgetsController < ApplicationController
     @budget.user_id = current_user.id
     if @budget.valid?
       @budget.save
+      @budget.groups.push(@group)
       # flash[:notice] = 'New group Created Successfully'
       redirect_to user_group_budgets_path
     else
@@ -29,6 +36,10 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.require(:group_budget).permit!
+    params.require(:budget).permit(:name, :amount)
+  end
+
+  def set_group
+    @group = Group.find(params[:group_id])
   end
 end

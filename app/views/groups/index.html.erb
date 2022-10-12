@@ -1,4 +1,8 @@
 <div>
+    <div class="total row">
+    <h3 col-6> Budget</h3>
+    <h3 col-6><%= number_to_currency(@budgets.sum(&:amount)) %> </h3>
+    </div>
   <% @groups.each do |group|%>
     <div>
       <img src="<%= group.icon %>", width="100", height="100", alt="group_icon">
@@ -9,10 +13,6 @@
         <% end %>
         <span> <%= group.created_at.strftime("%B, %e at %H:%M") %> </span>
       </div>
-    </div>
-    <div class="total row">
-      <h3 col-6> Budget</h3>
-      <h3 col-6><%= number_to_currency(@budgets.sum(&:amount)) %> </h3>
     </div>
   <% end %>
   <div>

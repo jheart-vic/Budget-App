@@ -1,10 +1,13 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
+  # before_action :set_group
   def index
     @user = User.find(params[:user_id])
     @groups = @user.groups
+    # @budgets = Budget.includes(:user).where(group_id: @groups.ids)
     # @groups = Group.includes(:user).where(user_id: @user.id)
     @budgets = Budget.all
+    # @budget = Budget.joins(@groups).where(group_id: @groups.ids)
   end
 
   def show
