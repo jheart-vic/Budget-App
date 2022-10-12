@@ -11,6 +11,16 @@
   </head>
 
   <body>
+  <div class="Nav-bar">
+  <%  if controller_name != 'HomeController' %>
+    <p class="nav-link"><%= link_to 'Sign In', new_user_session_path %></p>
+    <p class="nav-link"><%= link_to 'Sign Up', new_user_registration_path %></p>
+    <% if user_signed_in? %>
+    <p class="nav-link"><%= button_to 'Logout', destroy_user_session_path, method: :delete  %></p>
+    <%end%>
+  <%end%>
+
+  </div>
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>

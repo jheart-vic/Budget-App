@@ -12,7 +12,7 @@
       <span col-6><%= number_to_currency(@total) %> </span>
     </div>
   <% @budgets.each do |budget|%>
-    <%=  budget.name %>
+    <%= render budget %>
   <% end %>
   <div>
     <%= link_to "Add budget", new_user_group_budget_path %>
