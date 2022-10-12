@@ -1,0 +1,14 @@
+<h2>Welcome to Budget App show for Groups</h2>
+
+<h1> <%= link_to user_groups_path do %>
+  <i class="fa-solid fa-chevron-left" style="color: #3778c2; padding-left: 22px"> </i>
+ <% end %>
+</h1>
+<div>
+  <% @budgets.each do |budget|%>
+   <%=  budget.name %>
+  <% end %>
+  <div>
+    <%= link_to "Add Budget", new_user_group_budget_path(current_user, @group.id) %>
+  </div>
+</div>

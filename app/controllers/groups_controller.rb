@@ -1,27 +1,31 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i[show edit update destroy]
   def index
-    @user = User.find(params[user_id])
-    @groups = Group.icludes(:user).where(user_id: @user.id)
-    @group_budgets = GroupBudget.includes(:user).where(group_id: @groups.ids)
+    @user = User.find(params[:user_id])
+    @groups = @user.groups
+    # @groups = Group.includes(:user).where(user_id: @user.id)
+    @budgets = Budget.all
   end
 
   def show
-    @group_budgets = GroupBudget.includes(:user).where(group_id: @groups.ids)
+    # @group = Group.find(params[:id])
+    @budgets = @group.budgets
+    # @budgets = Budget.includes(:user).where(group_id: @group.id)
   end
 
   def new
-    @user = User.find(params[user_id])
+    @user = User.find(params[:user_id])
     @group = Group.new
   end
 
   def create
-    @user = User.find(params[user_id])
+    @user = User.find(params[:user_id])
     @group = Group.new(group_params)
     @group.user_id = @user.id
     if @group.valid?
       @group.save
       # flash[:notice] = 'New group Created Successfully'
-      redirect_to groups_path
+      redirect_to user_groups_path
     else
       render :new
     end
@@ -37,6 +41,10 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    param.require(:group).permit!
+    params.require(:group).permit!
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 end

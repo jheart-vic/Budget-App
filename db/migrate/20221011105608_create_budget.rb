@@ -1,6 +1,6 @@
-class CreateGroupBudget < ActiveRecord::Migration[7.0]
+class CreateBudget < ActiveRecord::Migration[7.0]
   def change
-    create_table :group_budgets do |t|
+    create_table :budgets do |t|
       t.string :name
       t.decimal :amount
 
