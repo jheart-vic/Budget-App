@@ -14,30 +14,83 @@
  *= require_self
  */
  @import "font-awesome";
+
+ .notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aqua; */
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(199, 108, 123); */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
  
+/* navbar styles */
+
 .Nav-bar {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  gap: 1rem;
   background-color: blue;
   padding: 1rem;
-  padding-left: 3rem;
+  /* padding-left: 3rem; */
 }
 
 body {
   margin: 0;
 }
 
-.nav-link a {
-  color: white;
-  text-decoration: none;
-  font-size: large;
+.links {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  list-style: none;
+}
+
+
+
+.nav-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.fa-book {
+  font-size: 2rem;
+  color: rgb(87, 61, 61);
+}
+
+.bud, 
+.ory {
+  font-size: 2rem;
+  color: rgb(173, 62, 62);
+}
+
+.get {
+  font-size: 2rem;
+  color: rgb(87, 61, 61);
+  font-family: cursive;
 }
 
 .nav-link a:hover {
   text-decoration: underline;
 }
 
+/* group styles */
 .group-index {
   display: flex;
   flex-direction: column;
@@ -61,6 +114,13 @@ body {
   justify-content: flex-end;
   padding: 10px;
   gap: 10px;
+}
+
+.group-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex: 10;
 }
 
 .add-group-btn {
@@ -87,25 +147,48 @@ margin-bottom: 20px;
   text-align: center;
 }
 
-/* group-show */
+/* group-budget */
 
-.show {
+.budget {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: red;
 }
 
-.show-header {
+.budget-header {
   display: flex;
   justify-content: space-between;
-  background-color: blue;
+  flex: 10;
 }
 
-.show-body {
+.budget-total {
+  display: flex;
+  justify-content: space-between;
+  flex: 10;
+  gap: 10px;
+}
+
+.budget-body {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 15px;
   gap: 20px;
-  background-color: green;
+}
+
+.budget-render {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 10px;
+  gap: 10px;
+  font-size: large;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  justify-content: space-evenly;
 }

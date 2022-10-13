@@ -21,6 +21,8 @@ gem 'stimulus-rails'
 
 gem 'jbuilder'
 
+gem 'cancancan'
+
 gem 'devise'
 
 gem 'tzinfo-data', '~> 1.2022', '>= 1.2022.3'

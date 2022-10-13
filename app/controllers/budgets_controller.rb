@@ -12,6 +12,12 @@ class BudgetsController < ApplicationController
     # @group = Group.all
   end
 
+  def show
+    # @group = Group.find(params[:id])
+    @budget = @group.budgets
+    # @budgets = Budget.includes(:user).where(group_id: @group.id)
+  end
+
   def create
     @user = User.find(params[:user_id])
     @budget = Budget.new(budget_params)
@@ -27,10 +33,15 @@ class BudgetsController < ApplicationController
   end
 
   def destroy
-    @budget = Budget.find(params[:id])
+    @budget = Budget.find_by(:budget_id)
+    @group = @budget.groups.find(:group_id)
     @budget.destroy
     # flash[:notice] = 'Successfully removed the Recipe.'
-    redirect_to user_group_budgets_path
+    # redirect_to user_group_budgets_path
+    respond_to do |format|
+      format.html { redirect_to user_group_budgets_path, notice: 'Expenditure was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
