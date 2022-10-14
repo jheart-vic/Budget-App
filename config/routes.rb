@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'     
+    get '/users/sign_out' => 'devise/sessions#destroy'
     authenticated :user do
       root 'groups#index', as: :authenticated_root
     end
@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       root 'home#index', as: :unauthenticated_root
     end
   end
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
   # end
   resources :users do
     resources :groups do
-     resources :budgets
+      resources :budgets
     end
   end
 end
