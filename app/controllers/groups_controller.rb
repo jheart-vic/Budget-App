@@ -1,6 +1,4 @@
 class GroupsController < ApplicationController
-  # before_action :set_group, only: %i[show edit update destroy]
-  # before_action :set_group
   def index
     if user_signed_in?
       @user = current_user
