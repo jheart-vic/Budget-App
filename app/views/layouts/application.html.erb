@@ -41,9 +41,17 @@
       </div>
     </div>
   </nav>
- <% if present? %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice %>
+  <p class="alert alert-info position-absolute top-10 start-50 translate-middle" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+  </p>
+<% end %>
+<% if alert %>
+  <div class="alert alert-warning mt-4 position-absolute top-10 start-50 translate-middle" role="alert">
+    <%= alert %>
+    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 <% end %>
     <%= yield %>
     <script src="https://kit.fontawesome.com/b331332bf9.js" crossorigin="anonymous"></script>

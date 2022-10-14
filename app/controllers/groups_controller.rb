@@ -1,15 +1,14 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
+  # before_action :set_group, only: %i[show edit update destroy]
   # before_action :set_group
   def index
-    if user_signed_in? 
+    if user_signed_in?
       @user = current_user
       @groups = @user.groups.order('created_at DESC')
       @budgets = Budget.all
-       else
-       render root_path
+    else
+      render root_path
     end
-
   end
 
   def new
@@ -33,7 +32,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     flash[:notice] = 'Group Successfully Removed .'
-    redirect_to groups_path
+    redirect_to user_groups_path
   end
 
   private
@@ -42,7 +41,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit!
   end
 
-  def set_group
-    @group = Group.find(params[:id])
-  end
+  # def set_group
+  #   @group = Group.find(params[:id])
+  # end
 end

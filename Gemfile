@@ -15,7 +15,7 @@ gem 'importmap-rails'
 
 gem 'turbo-rails'
 
-gem "font-awesome-sass", "~> 6.2.0"
+gem 'font-awesome-sass', '~> 6.2.0'
 
 gem 'stimulus-rails'
 
@@ -32,8 +32,12 @@ gem 'bootsnap', require: false
 gem 'ffi', github: 'ffi/ffi', submodules: true
 
 group :development, :test do
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'letter_opener'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -41,7 +45,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

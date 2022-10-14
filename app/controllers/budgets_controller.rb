@@ -12,12 +12,6 @@ class BudgetsController < ApplicationController
     # @group = Group.all
   end
 
-  def show
-    # @group = Group.find(params[:id])
-    @budget = @group.budgets
-    # @budgets = Budget.includes(:user).where(group_id: @group.id)
-  end
-
   def create
     @user = User.find(params[:user_id])
     @budget = Budget.new(budget_params)
@@ -33,8 +27,7 @@ class BudgetsController < ApplicationController
   end
 
   def destroy
-    @budget = Budget.find_by(:budget_id)
-    @group = @budget.groups.find(:group_id)
+    @budget = Budget.find_by(id: params[:id])
     @budget.destroy
     # flash[:notice] = 'Successfully removed the Recipe.'
     # redirect_to user_group_budgets_path
