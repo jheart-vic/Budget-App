@@ -30,9 +30,8 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    # flash[:notice] = 'Group Successfully Removed .'
     respond_to do |format|
-      format.html { redirect_to user_groups_path, notice: 'Budget was successfully destroyed.' }
+      format.html { redirect_to user_groups_path, notice: 'Group has been successfully removed.' }
       format.json { head :no_content }
     end
   end
