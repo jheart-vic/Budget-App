@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i[destroy]
   def index
     if user_signed_in?
       @user = current_user
@@ -29,8 +30,11 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    flash[:notice] = 'Group Successfully Removed .'
-    redirect_to user_groups_path
+    # flash[:notice] = 'Group Successfully Removed .'
+    respond_to do |format|
+      format.html { redirect_to user_groups_path, notice: 'Budget was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -39,7 +43,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit!
   end
 
-  # def set_group
-  #   @group = Group.find(params[:id])
-  # end
+  def set_group
+    @group = Group.find(params[:id])
+  end
 end
