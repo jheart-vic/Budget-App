@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    puts group_params
     @user = User.find(params[:user_id])
     @group = Group.new(group_params)
     @group.user_id = @user.id
@@ -24,6 +25,7 @@ class GroupsController < ApplicationController
       flash[:notice] = 'New group Created Successfully'
       redirect_to user_groups_path
     else
+      flash[:notice] = 'Input a valid Icon image and Name.'
       render :new
     end
   end
