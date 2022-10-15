@@ -3,5 +3,5 @@ class Group < ApplicationRecord
   has_and_belongs_to_many :budgets, dependent: :destroy
 
   validates :name, presence: true, length: { in: 3..30 }
-  validates :icon, presence: true, length: { in: 10..250 }
+  validates :icon, presence: true, length: { in: 10..500 }
 end
