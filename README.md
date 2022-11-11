@@ -2,7 +2,7 @@
 
 # Project Name
 
-> Description the project.
+> An App for keeping track of your daily transactions
 
 
 ## Built With
@@ -14,6 +14,7 @@
 ## Live Demo (if available)
 
 [Live Demo Link](https://budgetory.herokuapp.com/)
+
 [Video Link](https://loom.com/share/52ab778e34bc463bbb57d1b43defe33d)
 
 
