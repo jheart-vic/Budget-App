@@ -1,0 +1,190 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "font-awesome";
+
+.notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* navbar styles */
+
+.Nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: blue;
+  padding: 1rem;
+
+  /* padding-left: 3rem; */
+}
+
+body {
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  list-style: none;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.fa-book {
+  font-size: 2rem;
+  color: rgb(87, 61, 61);
+}
+
+.bud,
+.ory {
+  font-size: 2rem;
+  color: rgb(173, 62, 62);
+}
+
+.get {
+  font-size: 2rem;
+  color: rgb(87, 61, 61);
+  font-family: cursive;
+}
+
+.nav-link a:hover {
+  text-decoration: underline;
+}
+
+/* group styles */
+.group-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.each-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px;
+  border: 1px solid black;
+  width: 50%;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  gap: 10px;
+}
+
+.group-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex: 10;
+}
+
+.add-group-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  padding: 10px;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.new-group-btn {
+  border: 1px solid grey;
+  text-decoration: none;
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+}
+
+/* group-budget */
+
+.budget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  flex: 10;
+}
+
+.budget-total {
+  display: flex;
+  justify-content: space-between;
+  flex: 10;
+  gap: 10px;
+}
+
+.budget-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 15px;
+  gap: 20px;
+}
+
+.budget-render {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 10px;
+  gap: 10px;
+  font-size: large;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  justify-content: space-evenly;
+}
