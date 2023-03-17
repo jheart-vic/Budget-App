@@ -31,6 +31,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    @group.budgets.each(&:destroy)
     @group.destroy
     respond_to do |format|
       format.html { redirect_to user_groups_path, notice: 'Group has been successfully removed.' }
