@@ -3,5 +3,4 @@ class Group < ApplicationRecord
   has_and_belongs_to_many :budgets, dependent: :delete_all
 
   validates :name, presence: true, length: { in: 3..30 }
-
 end
