@@ -7,8 +7,10 @@ class Ability
     return unless user.present?
 
     # can :manage, :all
+    # rubocop:disable Style/HashSyntax
     can :manage, Group, user: user
-    can :manage, Budget, user:user
+    can :manage, Budget, user: user
+    # rubocop:enable Style/HashSyntax
     #   return unless user.admin?
     #   can :manage, :all
   end
