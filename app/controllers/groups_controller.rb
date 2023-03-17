@@ -19,7 +19,6 @@ class GroupsController < ApplicationController
     puts group_params
     @user = User.find(params[:user_id])
     @group = Group.new(group_params)
-    # @group.icon = 'https://img.icons8.com/ios-glyphs/344/person-male.png' if @group.icon.nil?
     @group.user_id = @user.id
     if @group.valid?
       @group.save
